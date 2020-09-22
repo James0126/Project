@@ -7,10 +7,10 @@ vector<int> solution(vector<int> array, vector<vector<int>> commands)
 {
     vector<int> answer;
     
-    for(int i = 0; i < commands.size(); i++)
+   for(int i = 0; i < commands.size(); i++)
     {
         vector<int> temp;
-        for(int j = commands[i][0]-1; j<commands[i][1];j++ )
+        for(int j = commands[i][0] - 1; j<commands[i][1];j++ )
         {
             temp.push_back(array[j]);
         }
@@ -19,7 +19,6 @@ vector<int> solution(vector<int> array, vector<vector<int>> commands)
         {
             for(int l = k+1; l < temp.size(); l++)
             {
-                
                 if(temp[k] > temp[l])
                 {
                     int dest = temp[k];
@@ -30,9 +29,8 @@ vector<int> solution(vector<int> array, vector<vector<int>> commands)
             }
         }//end of for(k)
         
-            answer.push_back(temp[commands[i][2]-1]);
-
-        }
+        answer.push_back(temp[commands[i][2]-1]);
+    }
     
 
     return answer;
