@@ -1,26 +1,37 @@
 #include <string>
-#include <iostream>
+#include <vector>
+
 using namespace std;
 
-bool solution(string s)
+vector<int> solution(vector<int> array, vector<vector<int>> commands) 
 {
-    bool answer = true;
-
-    int pNum = 0;
-    int yNum = 0;
+    vector<int> answer;
     
-    for(int i = 0; i < s.length(); i++){
-        if(s[i]=='p'||s[i]=='P'){
-            pNum++;
-        }else if(s[i]=='y'||s[i]=='Y'){
-            yNum++;
+   for(int i = 0; i < commands.size(); i++)
+    {
+        vector<int> temp;
+        for(int j = commands[i][0] - 1; j<commands[i][1];j++ )
+        {
+            temp.push_back(array[j]);
         }
+        
+        for(int k = 0; k < temp.size(); k++)
+        {
+            for(int l = k+1; l < temp.size(); l++)
+            {
+                if(temp[k] > temp[l])
+                {
+                    int dest = temp[k];
+                    temp[k] = temp[l];
+                    temp[l] = dest;
+                }
+                
+            }
+        }//end of for(k)
+        
+        answer.push_back(temp[commands[i][2]-1]);
     }
     
-    if(pNum == yNum) answer=true;
-    else answer = false;
-    // [실행] 버튼을 누르면 출력 값을 볼 수 있습니다.
-    cout << s << endl;
 
     return answer;
 }
