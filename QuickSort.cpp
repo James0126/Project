@@ -29,10 +29,7 @@ void QSort(vector<int>& vec, int left, int right)
         
         if(left < pr) QSort(vec, left, pr);
         if(pl < right) QSort(vec, pl, right);
-    }
-    
-    //cout<<vec.size()<<endl;
-        
+    }   
 }
 
 int main()
