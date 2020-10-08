@@ -94,8 +94,7 @@ int main()
     Push(nodeTree, 1);
    
     Print(nodeTree);
-    string str = Search(nodeTree, 4) ? "FIND" : "NULL";
-    cout<<str<<endl; 
+    cout << (Search(nodeTree, 4) ? "FIND" : "NULL") << endl; 
 
    return 0;
 }
